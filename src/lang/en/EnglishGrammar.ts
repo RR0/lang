@@ -1,5 +1,5 @@
 import {Gender} from "@rr0/common";
-import {Grammar} from "../Translator";
+import {Grammar} from "../Grammar";
 
 export class EnglishGrammar implements Grammar {
 

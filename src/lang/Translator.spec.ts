@@ -2,38 +2,43 @@ import {Translator} from "./Translator"
 import {Gender} from "@rr0/common";
 import {grammar_fr} from "./fr/FrenchGrammar";
 import {grammar_en} from "./en/EnglishGrammar";
+import {Translation} from "./Translation";
 
 
 test('translate key to values', () => {
-  const translator = new Translator('fr', {key: 'value'}, grammar_fr)
-  const translated = translator.translate(translator.messages.key)
+  const messages = {key: 'value'};
+  const translator = new Translator('fr', grammar_fr)
+  const translated = translator.translate(messages.key)
   expect(translated).toBe('value')
 })
 
 
 test('translate with parameters', () => {
-  const translator = new Translator('fr', {key: 'value is ${param}'}, grammar_fr)
-  const translated = translator.translate(translator.messages.key, {param: 'paramValue'})
+  const messages = {key: 'value is ${param}'};
+  const translator = new Translator('fr', grammar_fr)
+  const translated = translator.translate(messages.key, {param: 'paramValue'})
   expect(translated).toBe('value is paramValue')
 })
 
 
 test('translate to plurals', () => {
   {
-    const translator = new Translator('fr', {
+    const messages = {
       key: 'plusieurs ${param1:plural} et ${param2:plural} mais un seul ${param1} et ${param2}'
-    }, grammar_fr)
-    const translated = translator.translate(translator.messages.key, {
+    };
+    const translator = new Translator('fr', grammar_fr)
+    const translated = translator.translate(messages.key, {
       param1: 'cigare',
       param2: 'cheval',
     })
     expect(translated).toBe('plusieurs cigares et chevaux mais un seul cigare et cheval')
   }
   {
-    const translator = new Translator('en', {
+    const messages = {
       key: 'several ${param1:plural} and ${param2:plural} but one single ${param1} and ${param2}'
-    }, grammar_en)
-    const translated = translator.translate(translator.messages.key, {
+    };
+    const translator = new Translator('en', grammar_en)
+    const translated = translator.translate(messages.key, {
       param1: 'thing',
       param2: 'party',
     })
@@ -43,9 +48,10 @@ test('translate to plurals', () => {
 
 
 test('adds new translation', () => {
-  const translator = new Translator('fr', {dict: {key: 'value is ${param}'}}, grammar_fr)
-  translator.add('newKey', 'new value is ${param}')
-  const translated = translator.translate((translator.messages.dict as any)['newKey'], {param: 'paramValue'})
+  let messages = {dict: {key: 'value is ${param}'}};
+  const translation = new Translation('fr', grammar_fr, messages)
+  translation.add('newKey', 'new value is ${param}')
+  const translated = translation.translate((translation.messages.dict as any)['newKey'], {param: 'paramValue'})
   expect(translated).toBe('new value is paramValue')
 })
 

@@ -1,25 +1,15 @@
 import {Gender, KeyValue, ObjectUtils} from "@rr0/common";
+import {Grammar} from "./Grammar";
+
 
 export interface WordMessage {
   [gender: string]: string
 }
 
 
-export interface DictionaryMessages extends KeyValue {
-}
-
-
-export interface Grammar {
-
-  plural(s: string): string
-
-  at(s: string, gender: Gender): string
-}
-
-
 export class Translator<T extends KeyValue> {
 
-  constructor(readonly locale: string, readonly messages: T, readonly grammar: Grammar) {
+  constructor(readonly locale: string, readonly grammar: Grammar) {
   }
 
   compoundKey(subKeys: string[]): string {
@@ -28,10 +18,6 @@ export class Translator<T extends KeyValue> {
 
   getGender(word: WordMessage): Gender {
     return (Gender as any)[Object.keys(word)[0]]
-  }
-
-  add(key: string, value: any) {
-    this.messages.dict[key] = value
   }
 
   translateKey(obj: KeyValue, key: string, values: KeyValue = {}): string {
