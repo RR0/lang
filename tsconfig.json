@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "esnext",
+    "jsx": "preserve",
+    "declaration": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "target": "ES2018",
+    "rootDir": "src",
+    "moduleResolution": "node"
+  }
+}
