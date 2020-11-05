@@ -14,6 +14,7 @@ npm install @rr0/lang --save
 - `Translator.translate(message, values?)` returns `message` with possible values interpolated.
   - the `message` string should be referenced from a localized instance of a message interface.  
   - Interpolation uses the `${var}` pattern with the `${var:plural}` variant to force plural.
+- a `Translation` is a `Translator` that holds its messages.
 
 ### Example
 Say we want to translate some message in two locales:
@@ -46,4 +47,12 @@ const translated_fr = translator_fr.translate(messages_fr.key1, {
   param2: 'cheval',
 })
 // translated_en = "plusieurs cigares et chevaux mais un seul cigare et cheval"
+```
+A `Translation` is a `Translator` that holds its messages. For instance:
+```js
+const messages = {dict: {key: 'value is ${param}'}};
+const translation = new Translation('fr', grammar_fr, messages)
+translation.add('newKey', 'new value is ${param}')
+const translated = translation.translate((translation.messages.dict as any)['newKey'], {param: 'paramValue'})
+// translated = "new value is paramValue"
 ```
