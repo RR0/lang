@@ -1,7 +1,7 @@
 {
   "name": "@rr0/lang",
   "author": "Jérôme Beau",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Language and translation",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -28,12 +28,11 @@
     "typescript": "4.0.3"
   },
   "keywords": [
-    "facts",
-    "people",
-    "organization",
-    "event",
-    "place",
-    "timeline",
+    "language",
+    "locale",
+    "grammar",
+    "translation",
+    "translator",
     "HTML",
     "rr0"
   ],

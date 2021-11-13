@@ -1,12 +1,12 @@
-import {Translator} from "./Translator"
-import {Gender} from "@rr0/common";
-import {grammar_fr} from "./fr/FrenchGrammar";
-import {grammar_en} from "./en/EnglishGrammar";
-import {Translation} from "./Translation";
+import {Translator} from "Translator"
+import {Gender} from "@rr0/common"
+import {grammar_fr} from "fr/FrenchGrammar"
+import {grammar_en} from "en/EnglishGrammar"
+import {Translation} from "Translation"
 
 
 test('translate key to values', () => {
-  const messages = {key: 'value'};
+  const messages = {key: 'value'}
   const translator = new Translator('fr', grammar_fr)
   const translated = translator.translate(messages.key)
   expect(translated).toBe('value')

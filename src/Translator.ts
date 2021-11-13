@@ -1,5 +1,5 @@
-import {Gender, KeyValue, ObjectUtils} from "@rr0/common";
-import {Grammar} from "./Grammar";
+import {Gender, KeyValue, ObjectUtils} from "@rr0/common"
+import {Grammar} from "Grammar"
 
 
 export interface WordMessage {
@@ -9,6 +9,12 @@ export interface WordMessage {
 
 export class Translator<T extends KeyValue> {
 
+  /**
+   * Creates a message translator to some language.
+   *
+   * @param locale The language to translate to.
+   * @param grammar The grammar rules of the language.
+   */
   constructor(readonly locale: string, readonly grammar: Grammar) {
   }
 
@@ -27,12 +33,18 @@ export class Translator<T extends KeyValue> {
     return this.translate(obj[key], values)
   }
 
+  /**
+   * Returns a translated message, with possible values interpolated.
+   *
+   * @param template The message template, which can contain placeholders such as ${key} or ${key:plural}
+   * @param values The values to be interpolated into the placeholders.
+   */
   translate(template: string, values: KeyValue = {}): string {
     console.assert(Boolean(template), 'Translation requires a template')
     let translated = template
     for (const key in values) {
       if (values.hasOwnProperty(key)) {
-        const value = values[key];
+        const value = values[key]
         if (ObjectUtils.isSet(value)) {
           translated = translated.replace(`\$\{${`${key}:plural`}\}`, this.grammar.plural(value) as any as string)
           translated = translated.replace(`\$\{${key}\}`, value as any as string)

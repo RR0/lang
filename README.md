@@ -1,27 +1,63 @@
-# lang
+# @rr0/lang
 
 [![RR0](https://circleci.com/gh/RR0/lang.svg?style=svg)](https://app.circleci.com/pipelines/github/RR0/lang)
 
-Language and translation
+A **typed**, no-dependency language and translation lib.
+
+- Support for standard template literals as placeholders in messages, with plural support.
+- Translations implement _interfaces_, so:
+    - you cannot use a incorrect message, since the compiler allows only declared message keys.
+    - you cannot forget a translation, since all the compiler will enforce you to implement it.
 
 ## Installation
+
+Add `@rr0/lang` as a dependency to your project:
 
 ```
 npm install @rr0/lang --save
 ```
 
-## Translation
-- `Translator.translate(message, values?)` returns `message` with possible values interpolated.
-  - the `message` string should be referenced from a localized instance of a message interface.  
-  - Interpolation uses the `${var}` pattern with the `${var:plural}` variant to force plural.
-- a `Translation` is a `Translator` that holds its messages.
+so that you can
 
-### Example
+```
+import * from "@rr0/lang"
+```
+
+in your code.
+
+## Usage
+
+1. Create a common interface for your messages to translate:\
+   `interface MyMessages extends KeyValue { hello: string; bye: string; }`
+   }`
+2. Create concrete classes with translations values those keys:\
+   `class MyFrenchMessages implements MyMessages { hello = "Bonjour ${name}"; bye = "Au revoir"}`
+3. Create a Translator with a given target language and grammar: \
+   `frTranslator = new Translator("fr", grammar_fr)`
+4. Translate a message: `bonjour = frTranslator.translate(myFrMessages.hello, {name: "Jérôme"})`
+
+### Plural support
+
+You can use `${var:plural}` variant in a placeholder to force plural. The translator will then use the provided grammar
+rules to render the message.
+
+### Translations
+
+By default messages and translators are separated, but you can use a `Translation`, which is a `Translator` that holds
+its messages.
+
+## Example
+
 Say we want to translate some message in two locales:
+
 ```js
 import {Translator, grammar_en, grammar_fr} from "@rr0/lang";
 
-interface MyMessages extends KeyValue {
+interface
+MyMessages
+extends
+KeyValue
+{
   key1: string
 }
 
