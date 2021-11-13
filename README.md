@@ -63,24 +63,26 @@ KeyValue
 
 class EnglishMessages implements MyMessages {
   key1 = 'several ${param1:plural} and ${param2:plural} but one single ${param1} and ${param2}'
-};
+}
+
 const messages_en = new EnglishMessages()
 class FrenchMessages implements MyMessages {
   key1 = 'plusieurs ${param1:plural} et ${param2:plural} mais un seul ${param1} et ${param2}'
-};
+}
+
 const messages_fr = new FrenchMessages()
 
 const translator_en = new Translator('en', grammar_en)
 const translated_en = translator_en.translate(messages_en.key1, {
   param1: 'thing',
-  param2: 'party',
+  param2: 'party'
 })
 // translated_en = "several things and parties but one single thing and party"
 
 const translator_fr = new Translator('fr', grammar_fr)
 const translated_fr = translator_fr.translate(messages_fr.key1, {
   param1: 'cigare',
-  param2: 'cheval',
+  param2: 'cheval'
 })
 // translated_en = "plusieurs cigares et chevaux mais un seul cigare et cheval"
 ```
