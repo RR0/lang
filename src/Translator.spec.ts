@@ -1,8 +1,8 @@
-import {Translator} from "Translator"
+import {Translator} from "Translator.js"
 import {Gender} from "@rr0/common"
-import {grammar_fr} from "fr/FrenchGrammar"
-import {grammar_en} from "en/EnglishGrammar"
-import {Translation} from "Translation"
+import {grammar_fr} from "fr/FrenchGrammar.js"
+import {grammar_en} from "en/EnglishGrammar.js"
+import {Translation} from "Translation.js"
 
 
 test('translate key to values', () => {

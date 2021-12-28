@@ -1,5 +1,5 @@
 import {Gender, KeyValue, ObjectUtils} from "@rr0/common"
-import {Grammar} from "Grammar"
+import {Grammar} from "Grammar.js"
 
 
 export interface WordMessage {
