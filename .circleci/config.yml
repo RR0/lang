@@ -5,3 +5,4 @@ workflows:
   node-tests:
     jobs:
       - node/test
+          version: 16.2.0
