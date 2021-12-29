@@ -16,7 +16,7 @@
     "url": "git+https://github.com/RR0/lang.git"
   },
   "scripts": {
-    "clean": "rm -Rf dist & rm -Rf node_modules",
+    "clean": "rm -Rf dist & rm -Rf node_modules && rm package-lock.json",
     "prebuild": "npm install",
     "build": "tsc",
     "pretest": "npm run build",
