@@ -7,7 +7,7 @@
   "exports": "./index.js",
   "types": "dist/index.d.ts",
   "engines": {
-    "node": "^12.20.0 || >=14.13.1"
+    "node": "^>=16.2.0"
   },
   "license": "MIT",
   "homepage": "https://github.com/RR0/lang",
@@ -16,7 +16,7 @@
     "url": "git+https://github.com/RR0/lang.git"
   },
   "scripts": {
-    "clean": "rm -Rf dist & rm -Rf node_modules && rm package-lock.json",
+    "clean": "rm -Rf dist & rm -Rf node_modules",
     "prebuild": "npm install",
     "build": "tsc",
     "pretest": "npm run build",
