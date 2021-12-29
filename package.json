@@ -15,6 +15,7 @@
     "clean": "rm -Rf dist",
     "prebuild": "npm install",
     "build": "tsc",
+    "pretest": "npm run build",
     "test": "jest",
     "prepublishOnly": "npm test"
   },
