@@ -12,7 +12,7 @@
     "url": "git+https://github.com/RR0/lang.git"
   },
   "scripts": {
-    "clean": "rm -Rf dist",
+    "clean": "rm -Rf dist & rm -Rf node_modules",
     "prebuild": "npm install",
     "build": "tsc",
     "pretest": "npm run build",
