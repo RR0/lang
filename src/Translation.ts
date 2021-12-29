@@ -1,6 +1,6 @@
 import {KeyValue} from "@rr0/common"
 import {Grammar} from "Grammar.js"
-import {Translator} from "Translator.js"
+import {Translator} from "Translator"
 
 /**
  * A Translator that holds its messages.
