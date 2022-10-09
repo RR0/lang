@@ -16,21 +16,20 @@
     "url": "git+https://github.com/RR0/lang.git"
   },
   "scripts": {
-    "clean": "rm -Rf dist & rm -Rf node_modules",
+    "clean": "rm -Rf dist && rm -Rf node_modules && rm package-lock.json",
     "prebuild": "npm install",
     "build": "tsc",
-    "prepublishOnly": "npm test && npm run build",
-    "pretest": "npm install",
-    "test": "jest"
+    "prepublishOnly": "npm run build && npm test",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.14",
-    "jest": "^26.4.2",
-    "ts-jest": "^26.4.1",
-    "typescript": "4.0.3"
+    "@types/jest": "~29.1.2",
+    "jest": "~29.1.2",
+    "ts-jest": "~29.0.3",
+    "typescript": "4.8.4"
   },
   "dependencies": {
-    "@rr0/common": "^0.1.9"
+    "@rr0/common": "~0.1.10"
   },
   "keywords": [
     "language",
