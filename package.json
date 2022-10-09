@@ -2,7 +2,7 @@
   "name": "@rr0/lang",
   "type": "module",
   "author": "Jérôme Beau",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Language and translation",
   "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
