@@ -1,5 +1,5 @@
 import {Gender} from "@rr0/common"
-import {Grammar} from "Grammar.js"
+import {Grammar} from "../Grammar"
 
 export class FrenchGrammar implements Grammar {
 

@@ -1,6 +1,6 @@
 import {KeyValue} from "@rr0/common"
-import {Grammar} from "Grammar.js"
-import {Translator} from "Translator"
+import {Grammar} from "./Grammar"
+import {Translator} from "./Translator"
 
 /**
  * A Translator that holds its messages.
@@ -9,7 +9,7 @@ import {Translator} from "Translator"
  */
 export class Translation<T extends KeyValue> extends Translator<T> {
 
-  constructor(locale: string, grammar: Grammar, readonly messages: T) {
+  constructor(readonly locale: string, grammar: Grammar, readonly messages: T) {
     super(locale, grammar)
   }
 

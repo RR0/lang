@@ -2,12 +2,12 @@
   "name": "@rr0/lang",
   "type": "module",
   "author": "Jérôme Beau",
-  "version": "0.1.8",
+  "version": "0.1.10",
   "description": "Language and translation",
-  "exports": "./index.js",
-  "types": "dist/index.d.ts",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "engines": {
-    "node": "^>=16.2.0"
+    "node": ">=16.2.0"
   },
   "license": "MIT",
   "homepage": "https://github.com/RR0/lang",
@@ -19,9 +19,8 @@
     "clean": "rm -Rf dist & rm -Rf node_modules",
     "prebuild": "npm install",
     "build": "tsc",
-    "pretest": "npm run build",
-    "test": "jest",
-    "prepublishOnly": "npm test"
+    "prepublishOnly": "npm test && npm run build",
+    "test": "jest"
   },
   "devDependencies": {
     "@types/jest": "^26.0.14",
@@ -30,7 +29,7 @@
     "typescript": "4.0.3"
   },
   "dependencies": {
-    "@rr0/common": "^0.1.7"
+    "@rr0/common": "^0.1.9"
   },
   "keywords": [
     "language",

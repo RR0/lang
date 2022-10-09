@@ -1,5 +1,5 @@
 import {Gender, KeyValue, ObjectUtils} from "@rr0/common"
-import {Grammar} from "Grammar.js"
+import {Grammar} from "./Grammar"
 
 
 export interface WordMessage {
@@ -8,7 +8,6 @@ export interface WordMessage {
 
 
 export class Translator<T extends KeyValue> {
-
   /**
    * Creates a message translator to some language.
    *
