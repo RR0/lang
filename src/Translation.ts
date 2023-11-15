@@ -7,7 +7,7 @@ import {Translator} from "./Translator"
  *
  * @param T the message type
  */
-export class Translation<T extends KeyValue> extends Translator<T> {
+export class Translation<T extends KeyValue> extends Translator {
 
   constructor(readonly locale: string, grammar: Grammar, readonly messages: T) {
     super(locale, grammar)

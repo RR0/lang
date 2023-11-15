@@ -27,10 +27,10 @@ in your code.
 
 ## Usage
 
-1. Create a common interface for your messages to translate:\
+1. Create a common interface for your messages in every language. :\
    `interface MyMessages extends KeyValue { hello: string; bye: string; }`
    }`
-2. Create concrete classes with translations values those keys:\
+2. Create implementations of this interface with translations values:\
    `class MyFrenchMessages implements MyMessages { hello = "Bonjour ${name}"; bye = "Au revoir"}`
 3. Create a Translator with a given target language and grammar: \
    `frTranslator = new Translator("fr", grammar_fr)`
@@ -43,54 +43,55 @@ rules to render the message.
 
 ### Translations
 
-By default messages and translators are separated, but you can use a `Translation`, which is a `Translator` that holds
+By default, messages and translators are separated, but you can use a `Translation`, which is a `Translator` that holds
 its messages.
 
 ## Example
 
 Say we want to translate some message in two locales:
 
-```js
-import {Translator, grammar_en, grammar_fr} from "@rr0/lang";
+```ts
+import {Translator, grammar_en, grammar_fr} from '@rr0/lang'
 
-interface
-MyMessages
-extends
-KeyValue
-{
+// #1
+interface MyMessages extends KeyValue {
   key1: string
 }
 
+// #2
 class EnglishMessages implements MyMessages {
   key1 = 'several ${param1:plural} and ${param2:plural} but one single ${param1} and ${param2}'
 }
-
-const messages_en = new EnglishMessages()
 class FrenchMessages implements MyMessages {
   key1 = 'plusieurs ${param1:plural} et ${param2:plural} mais un seul ${param1} et ${param2}'
 }
 
-const messages_fr = new FrenchMessages()
-
+// #3
+const messages_en = new EnglishMessages()
 const translator_en = new Translator('en', grammar_en)
+
+const messages_fr = new FrenchMessages()
+const translator_fr = new Translator('fr', grammar_fr)
+
+// #4
 const translated_en = translator_en.translate(messages_en.key1, {
   param1: 'thing',
   param2: 'party'
 })
 // translated_en = "several things and parties but one single thing and party"
 
-const translator_fr = new Translator('fr', grammar_fr)
 const translated_fr = translator_fr.translate(messages_fr.key1, {
   param1: 'cigare',
   param2: 'cheval'
 })
-// translated_en = "plusieurs cigares et chevaux mais un seul cigare et cheval"
+
+// translated_fr = "plusieurs cigares et chevaux mais un seul cigare et cheval"
 ```
 A `Translation` is a `Translator` that holds its messages. For instance:
 ```js
-const messages = {dict: {key: 'value is ${param}'}};
+const messages = { dict: { key: 'value is ${param}' } }
 const translation = new Translation('fr', grammar_fr, messages)
 translation.add('newKey', 'new value is ${param}')
-const translated = translation.translate((translation.messages.dict as any)['newKey'], {param: 'paramValue'})
+const translated = translation.translate(translation.messages.dict['newKey'], { param: 'paramValue' })
 // translated = "new value is paramValue"
 ```

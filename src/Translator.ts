@@ -7,7 +7,7 @@ export interface WordMessage {
 }
 
 
-export class Translator<T extends KeyValue> {
+export class Translator {
   /**
    * Creates a message translator to some language.
    *

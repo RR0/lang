@@ -3,6 +3,7 @@ import {Gender} from "@rr0/common"
 import {grammar_fr} from "fr/FrenchGrammar"
 import {grammar_en} from "en/EnglishGrammar"
 import {Translation} from "Translation"
+import { expect, test } from '@javarome/testscript';
 
 
 test('translate key to values', () => {
