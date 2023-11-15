@@ -5,14 +5,12 @@ import {grammar_en} from "en/EnglishGrammar"
 import {Translation} from "Translation"
 import { expect, test } from '@javarome/testscript';
 
-
 test('translate key to values', () => {
   const messages = {key: 'value'}
   const translator = new Translator('fr', grammar_fr)
   const translated = translator.translate(messages.key)
   expect(translated).toBe('value')
 })
-
 
 test('translate with parameters', () => {
   const messages = {key: 'value is ${param}'};

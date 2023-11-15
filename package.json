@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "tsx": "4.1.2",
-    "@javarome/testscript": "^0.8.4"
+    "@javarome/testscript": "^0.8.5"
   },
   "dependencies": {
     "@rr0/common": "~0.1.10"
