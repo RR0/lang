@@ -1,8 +1,8 @@
 {
   "name": "@rr0/lang",
   "type": "module",
-  "author": "RR0 (rr0@rr0.org)",
-  "version": "0.1.11",
+  "author": "Jérôme Beau <rr0@rr0.org> (https://rr0.org)",
+  "version": "0.1.12",
   "description": "Language and translation",
   "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -10,7 +10,7 @@
     "node": ">=16.2.0"
   },
   "license": "MIT",
-  "homepage": "https://github.com/RR0/lang",
+  "homepage": "https://github.com/RR0/lang#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RR0/lang.git"
@@ -23,11 +23,12 @@
     "test": "testscript"
   },
   "devDependencies": {
-    "tsx": "4.1.2",
-    "@javarome/testscript": "^0.8.5"
+    "tsx": "4.19.1",
+    "@javarome/testscript": "^0.11.1",
+    "typescript": "^5.6.3"
   },
   "dependencies": {
-    "@rr0/common": "~0.1.10"
+    "@rr0/common": "^1.1.2"
   },
   "keywords": [
     "language",

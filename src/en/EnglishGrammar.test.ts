@@ -1,6 +1,6 @@
-import { EnglishGrammar } from './EnglishGrammar';
 import { beforeEach, describe, expect, test } from '@javarome/testscript';
 import { Gender } from '@rr0/common';
+import { EnglishGrammar } from './EnglishGrammar.js';
 
 describe("English grammar", () => {
   let grammar: EnglishGrammar

@@ -1,1 +1,1 @@
-export * from "./EnglishGrammar"
+export * from "./EnglishGrammar.js"

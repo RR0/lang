@@ -1,8 +1,9 @@
-import { FrenchGrammar } from './FrenchGrammar';
 import { beforeEach, describe, expect, test } from '@javarome/testscript';
 import { Gender } from '@rr0/common';
+import { FrenchGrammar } from './FrenchGrammar.js';
 
 describe("French grammar", () => {
+
   let grammar: FrenchGrammar
 
   beforeEach(() => {

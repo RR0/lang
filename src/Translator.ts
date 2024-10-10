@@ -1,13 +1,13 @@
 import {Gender, KeyValue, ObjectUtils} from "@rr0/common"
-import {Grammar} from "./Grammar"
-
+import {Grammar} from "./Grammar.js"
+//import { assert } from "./index.js"
 
 export interface WordMessage {
   [gender: string]: string
 }
 
-
 export class Translator {
+
   /**
    * Creates a message translator to some language.
    *
@@ -39,7 +39,7 @@ export class Translator {
    * @param values The values to be interpolated into the placeholders.
    */
   translate(template: string, values: KeyValue = {}): string {
-    console.assert(Boolean(template), 'Translation requires a template')
+ //   assert.ok(Boolean(template), 'Translation requires a template')
     let translated = template
     for (const key in values) {
       if (values.hasOwnProperty(key)) {
