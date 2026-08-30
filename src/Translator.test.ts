@@ -1,4 +1,4 @@
-import { describe, expect, test } from "@javarome/testscript"
+import { describe, expect, test } from "vitest"
 import { Gender } from "@rr0/common"
 import { Translator } from "Translator.js"
 import { grammar_fr } from "fr/index.js"
