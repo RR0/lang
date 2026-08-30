@@ -12,6 +12,13 @@
     "sourceMap": true,
     "baseUrl": "./src",
     "allowSyntheticDefaultImports": true,
+    // Vitest ships declarations that need a newer moduleResolution than this package uses,
+
+    // and typechecking a dependency\'s .d.ts was never this build\'s job. Every other package
+
+    // here already sets it.
+
+    "skipLibCheck": true,
     "esModuleInterop": true
   },
   "include": [
